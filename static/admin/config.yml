@@ -54,7 +54,7 @@ collections:
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "faq"}
       - {label: "Title", name: "title", widget: "string"}
-      - {label: "Answer", name: "answer", widget: "markdown"}
+      - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Tags", name: "tags", widget: "list"}
 
