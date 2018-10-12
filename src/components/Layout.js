@@ -5,7 +5,7 @@ import Navbar from '../components/Navbar'
 import './_main.sass'
 
 const TemplateWrapper = ({ children }) => (
-  <div>
+  <div className='contents--wrapper'>
     <Helmet title="Home | megumitorii.tk" />
     <Navbar />
     <div>{children}</div>

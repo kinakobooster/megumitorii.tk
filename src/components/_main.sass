@@ -17,88 +17,179 @@ $breakpoint-mobile: 640px
         @content
 
 //colors
-$black: rgb(0, 0, 0)
-$deepGray: rgb(48, 48, 48)
-$lightGray: rgb(61, 61, 61)
-$blue: rgb(0, 0, 255)
+$black: #000
+$deepGray: #555
+$lightGray: #888
+$blue: #00F
 $accent: $blue
 $accent2: rgb(255, 0, 183)
-$white: rgb(255, 255, 255)
-$hoboWhite: rgb(120, 120, 120)
+$white: #fff
+$offWhite: #aaa
+
+//margins
+$basic_margin: 4vw
+$font-large: 48px
+$font-middle: 30px
+$font-text: 18px
 
 //basic
 body
     background-color: $white
-    color: $deepGray
-    font-size: 20px
+    color: $lightGray
+    font-size: $font-text
     font-family: sans-serif
-    line-height: 2
+    line-height: 1.4
 
-    +max-screen($breakpoint-tablet)
-        font-size: 18px
-
-
-    +max-screen($breakpoint-mobile)
-        font-size: 16px
+.contents--wrapper
+    max-width: 800px
+    margin: $basic-margin auto
+    overflow: hidden
 
 a
-    color: $accent
+    color: $deepGray
     text-decoration: none
+    transition: 50ms
+    font-weight: bold
 
 a:hover
-    color: $accent2
+    color: $accent
+    transition: 50ms
+    text-decoration: underline
 
 img
     max-width: 100%
 
 article
     margin: 0 auto
-    max-width: 1024px
 
-nav.topnav
-    height: 56px
-    top: 0px
-    overflow: hidden
-    width: 100%
+nav.navbar
+    display: none
+
+.more-link
+    text-align: right
+    margin-right: $basic-margin
+    margin-top: $basic-margin
+    display: block
+    transition: 100ms ease-out
+.more-link:hover
+    margin-right: 0
+    transition: 100ms ease-in
+
+.date
+    font-size: $font-text
+    color: $lightGray
+    a
+        display: inline-block
+        margin-right: $font-text/2
+        color: $offWhite
+
+//name card
+.name-card
+    border-left: 1px solid $accent
+    padding: $basic-margin
+    margin: $basic-margin 0
 
     h1
-        float: left
-        line-height: 56px
-        padding: 0 8px
+        font-size: $font-large
+        padding: 0 0 $basic-margin
+    
+    ul
+        padding-left: $basic-margin
+        font-size: $font-text
 
-    .navbar-right
-        float: right
+// projects
 
-    .navbar-item
-        display: inline-block
-        float: left
-        line-height: 56px
-        padding: 0 8px
+$blur-size: 10px
 
-$section_top_height_max: 512px
-$basic_margin: 32px
+.box-wrapper
+    display: flex
+    flex-direction: row
+    overflow: scroll
 
-section#top
-    width: 100%
-    overflow: hidden
+.square-box
+    width: 30vw
+    height: 30vw
+    background-size: cover
     position: relative
-    height: $section_top_height_max
+    z-index: 0
+    overflow: hidden
+    margin-right: $basic-margin / 2
+
+    display: flex
+    align-items: center
+    justify-content: center
 
     +max-screen($breakpoint-mobile)
-        height: $section_top_height_max * 1.5
+        width: 45vw
+        height: 45vw
 
-        +max-screen($breakpoint-mobile)
-            width: 100%
-            margin: 0
-            position: absolute
-            top: 0
+    .square-box--text
+        color: $deepGray
+        text-align: center
+        font-size: $font-middle
+        font-weight: bold
 
+        filter: blur(0)
+        opacity: 1
+        transition: 30ms ease-out
+
+        +max-screen($breakpoint-tablet)
+            font-size: $font-text
+
+
+
+
+.square-box:hover
+    border: 1px $blue solid
+    .square-box--text
+        filter: blur($blur-size)
+        opacity: 0
+        transition: 500ms ease-out
+
+
+
+.square-box::before
+    content: ""
+    position: absolute
+    z-index: -1
+
+    // 輪郭がぼやけてしまうのでブラー範囲を広げる
+    top: -2 * $blur-size
+    bottom: -2 * $blur-size
+    left: -2 * $blur-size
+    right: -2 * $blur-size
+    background: inherit
+    filter: brightness(400%) blur($blur-size) 
+    transition: 100ms ease-out
+
+.square-box:hover::before
+    transition: 300ms ease-out
+    filter: brightness(150%) blur(0) 
+
+
+// Links
+.links-wrapper
+    padding: $basic-margin 0
+
+.link
+    margin: $basic-margin 0
+    padding: $basic-margin 0
+
+
+    .link--title
+        font-size: $font-middle
+        color: $deepGray
+        padding: $basic-margin/2   0
+    
+    .description
+        font-size: $font-text
+        color: $lightGray
+        margin-left: $basic-margin 
+
+
+    
 section
     padding: 0 ($basic_margin / 2) ($basic_margin / 2)
-
-    h1
-        padding: $basic_margin / 2
-        font-size: 48px
 
     .wrapper
         display: flex
@@ -118,13 +209,13 @@ section
 
 
         p
-            color: $hoboWhite
+            color: $offWhite
             font-size: 0.5em
             text-align: left
 
 dt
     line-height: 0.6em
-    color: $hoboWhite
+    color: $offWhite
     font-size: 0.5em
     text-align: left
     margin-top: 1em
@@ -141,54 +232,3 @@ footer
     strong
         +max-screen($breakpoint-mobile)
             font-size: 0.5em
-
-.box-wrapper
-    display: flex
-    flex-direction: row
-
-.square-box
-    width: 360px
-    height: 360px
-    background-size: cover
-    position: relative
-    z-index: 0
-    overflow: hidden
-    margin-right: 60px
-    border: 1px $lightGray solid
-    display: flex
-    align-items: center
-    justify-content: center
-
-    .square-box--text
-        color: $deepGray
-        text-align: center
-        font-size: 36px
-        font-weight: bold
-
-    .square-box--text::hover
-        color: $blue
-
-    .date
-        color: $lightGray
-        font-size: 20px
-
-.square-box:hover
-    border: 1px $blue solid
-
-.square-box::before
-    content: ""
-    position: absolute
-    z-index: -1
-
-    // 輪郭がぼやけてしまうのでブラー範囲を広げる
-    top: -20px
-    bottom: -20px
-    left: -20px
-    right: -20px
-    background: inherit
-    filter: blur(20px) brightness(300%)
-    transition: 100ms
-
-.square-box:hover::before
-    transition: 700ms
-    filter: blur(0) brightness(150%)

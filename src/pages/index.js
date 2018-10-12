@@ -25,16 +25,18 @@ export default class IndexPage extends React.Component {
               {projestPosts.map(({ node }) => (
                 <Projects post={node} key={node.id} />
               ))}
-              <Link to="./projects">もっとみる></Link>
             </div>
+            <Link className="more-link" to="./projects">More Projects ></Link>
+
 
             {/* Links */}
             <div className="links-wrapper">
               {linkPosts.map(({ node }) => (
                 <Links post={node} key={node.id} />
               ))}
-              <Link to="./links">もっとみる></Link>
+              <Link className="more-link" to="./links">More Writings ></Link>
             </div>
+
 
             {/* FAQ */}
             <div className="faq-wrapper">
@@ -96,6 +98,7 @@ export const pageQuery = graphql`
             title
             templateKey
             date(formatString: "YYYY.MM.DD")
+            description
           }
         }
       }
