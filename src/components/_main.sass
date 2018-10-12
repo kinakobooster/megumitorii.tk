@@ -1,0 +1,194 @@
+@import _reset
+
+//media query
+$breakpoint-tablet: "980px"
+$breakpoint-mobile: "640px"
+
+=max-screen($break-point)
+    @media screen and (max-width: $break-point)
+        @content
+
+=min-screen($break-point)
+    @media screen and (min-width: $break-point)
+        @content
+
+=screen($break-point-min, $break-point-max)
+    @media screen and (min-width: $break-point-min) and (max-width: $break-point-max)
+        @content
+
+//colors
+$black: rgb(0, 0, 0)
+$deepGray: rgb(48, 48, 48)
+$lightGray: rgb(61, 61, 61)
+$blue: rgb(0, 0, 255)
+$accent: $blue
+$accent2: rgb(255, 0, 183)
+$white: rgb(255, 255, 255)
+$hoboWhite: rgb(120, 120, 120)
+
+//basic
+body
+    background-color: $white
+    color: $deepGray
+    font-size: 20px
+    font-family: sans-serif
+    line-height: 2
+
+    +max-screen($breakpoint-tablet)
+        font-size: 18px
+
+
+    +max-screen($breakpoint-mobile)
+        font-size: 16px
+
+a
+    color: $accent
+    text-decoration: none
+
+a:hover
+    color: $accent2
+
+img
+    max-width: 100%
+
+article
+    margin: 0 auto
+    max-width: 1024px
+
+nav.topnav
+    height: 56px
+    top: 0px
+    overflow: hidden
+    width: 100%
+
+    h1
+        float: left
+        line-height: 56px
+        padding: 0 8px
+
+    .navbar-right
+        float: right
+
+    .navbar-item
+        display: inline-block
+        float: left
+        line-height: 56px
+        padding: 0 8px
+
+$section_top_height_max: 512px
+$basic_margin: 32px
+
+section#top
+    width: 100%
+    overflow: hidden
+    position: relative
+    height: $section_top_height_max
+
+    +max-screen($breakpoint-mobile)
+        height: $section_top_height_max * 1.5
+
+        +max-screen($breakpoint-mobile)
+            width: 100%
+            margin: 0
+            position: absolute
+            top: 0
+
+section
+    padding: 0 ($basic_margin / 2) ($basic_margin / 2)
+
+    h1
+        padding: $basic_margin / 2
+        font-size: 48px
+
+    .wrapper
+        display: flex
+        flex-wrap: wrap
+        justify-content: center
+        background-color: $lightGray
+
+    .cell
+        display: block
+        background-color: $white
+        width: 40%
+        padding: $basic-margin / 2
+        margin: $basic-margin / 2
+
+        +max-screen($breakpoint-mobile)
+            width: 100%
+
+
+        p
+            color: $hoboWhite
+            font-size: 0.5em
+            text-align: left
+
+dt
+    line-height: 0.6em
+    color: $hoboWhite
+    font-size: 0.5em
+    text-align: left
+    margin-top: 1em
+
+dl
+    line-height: 1.5em
+    font-weight: normal
+
+footer
+    margin-top: $basic_margin
+    background-color: $deepGray
+    text-align: center
+
+    strong
+        +max-screen($breakpoint-mobile)
+            font-size: 0.5em
+
+.box-wrapper
+    display: flex
+    flex-direction: row
+
+.square-box
+    width: 360px
+    height: 360px
+    background-size: cover
+    position: relative
+    z-index: 0
+    overflow: hidden
+    margin-right: 60px
+    border: 1px $lightGray solid
+    display: flex
+    align-items: center
+    justify-content: center
+
+    .square-box--text
+        color: $deepGray
+        text-align: center
+        font-size: 36px
+        font-weight: bold
+
+    .square-box--text::hover
+        color: $blue
+
+    .date
+        color: $lightGray
+        font-size: 20px
+
+.square-box:hover
+    border: 1px $blue solid
+
+.square-box::before
+    content: ""
+    position: absolute
+    z-index: -1
+
+    // 輪郭がぼやけてしまうのでブラー範囲を広げる
+    top: -20px
+    bottom: -20px
+    left: -20px
+    right: -20px
+    background: inherit
+    filter: blur(20px) brightness(300%)
+    transition: 100ms
+
+.square-box:hover::before
+    transition: 700ms
+    filter: blur(0) brightness(150%)

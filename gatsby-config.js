@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby + Netlify CMS Starter',
+    title: 'megumitorii.tk',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
