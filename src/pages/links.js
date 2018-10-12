@@ -13,10 +13,9 @@ export default class IndexPage extends React.Component {
       <Layout>
         <section className="section">
           <div className="container">
-            {posts
-              .map(({ node: post }) => (
-                <Links post={post} />
-              ))}
+            {posts.map(({ node: post }) => (
+              <Links post={post} key={post.id} />
+            ))}
           </div>
         </section>
       </Layout>
@@ -35,8 +34,8 @@ IndexPage.propTypes = {
 export const pageQuery = graphql`
   query AllLinks {
     allMarkdownRemark(
-      sort: { order: DESC, fields: [frontmatter___date] },
-      filter: { frontmatter: {templateKey: {eq:"links"}}}
+      sort: { order: DESC, fields: [frontmatter___date] }
+      filter: { frontmatter: { templateKey: { eq: "links" } } }
     ) {
       edges {
         node {

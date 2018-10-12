@@ -13,30 +13,29 @@ export default class IndexPage extends React.Component {
       <Layout>
         <section className="section">
           <div className="container">
-            {posts
-              .map(({ node: post }) => (
-                <div
-                  className="content"
-                  style={{ border: '1px solid #eaecee', padding: '2em 4em' }}
-                  key={post.id}
-                >
-                  <p>
-                    <Link className="has-text-primary" to={post.fields.slug}>
-                      {post.frontmatter.title}
-                    </Link>
-                    <span> &bull; </span>
-                    <small>{post.frontmatter.date}</small>
-                  </p>
-                  <p>
-                    {post.excerpt}
-                    <br />
-                    <br />
-                    <Link className="button is-small" to={post.fields.slug}>
-                      Keep Reading →
-                    </Link>
-                  </p>
-                </div>
-              ))}
+            {posts.map(({ node: post }) => (
+              <div
+                className="content"
+                style={{ border: '1px solid #eaecee', padding: '2em 4em' }}
+                key={post.id}
+              >
+                <p>
+                  <Link className="has-text-primary" to={post.fields.slug}>
+                    {post.frontmatter.title}
+                  </Link>
+                  <span> &bull; </span>
+                  <small>{post.frontmatter.date}</small>
+                </p>
+                <p>
+                  {post.excerpt}
+                  <br />
+                  <br />
+                  <Link className="button is-small" to={post.fields.slug}>
+                    Keep Reading →
+                  </Link>
+                </p>
+              </div>
+            ))}
           </div>
         </section>
       </Layout>
@@ -55,8 +54,8 @@ IndexPage.propTypes = {
 export const pageQuery = graphql`
   query AllProjects {
     allMarkdownRemark(
-      sort: { order: DESC, fields: [frontmatter___date] },
-      filter: { frontmatter: {templateKey: {eq:"projects"}}}
+      sort: { order: DESC, fields: [frontmatter___date] }
+      filter: { frontmatter: { templateKey: { eq: "projects" } } }
     ) {
       edges {
         node {

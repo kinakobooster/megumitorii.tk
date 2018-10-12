@@ -17,8 +17,7 @@ const Navbar = () => (
           Products
         </Link>
       </div>
-      <div className="navbar-end">
-      </div>
+      <div className="navbar-end" />
     </div>
   </nav>
 )
