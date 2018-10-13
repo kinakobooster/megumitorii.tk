@@ -23,17 +23,19 @@ export default class IndexPage extends React.Component {
                 <Projects post={node} key={node.id} />
               ))}
             </div>
-            <Link className="more-link" to="./projects">More Projects ></Link>
-
+            <Link className="more-link" to="./projects">
+              More Projects >
+            </Link>
 
             {/* Links */}
             <div className="links-wrapper">
               {linkPosts.map(({ node }) => (
                 <Links post={node} key={node.id} />
               ))}
-              <Link className="more-link" to="./links">More Writings ></Link>
+              <Link className="more-link" to="./links">
+                More Writings >
+              </Link>
             </div>
-
 
             {/* FAQ */}
             <div className="faq-wrapper">

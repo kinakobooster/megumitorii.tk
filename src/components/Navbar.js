@@ -9,8 +9,7 @@ const Navbar = () => (
           megumitorii.tk
         </Link>
       </div>
-      <div className="navbar-start">
-      </div>
+      <div className="navbar-start" />
       <div className="navbar-end" />
     </div>
   </nav>

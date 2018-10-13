@@ -7,7 +7,7 @@ import Namecard from '../components/namecard'
 import './_main.sass'
 
 const TemplateWrapper = ({ children }) => (
-  <div className='contents--wrapper'>
+  <div className="contents--wrapper">
     <Helmet title="Home | megumitorii.tk" />
     <Namecard />
     <div>{children}</div>
