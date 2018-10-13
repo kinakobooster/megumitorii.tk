@@ -40,7 +40,6 @@ export const pageQuery = graphql`
     ) {
       edges {
         node {
-          excerpt(pruneLength: 400)
           id
           fields {
             slug
@@ -49,7 +48,7 @@ export const pageQuery = graphql`
             url
             tags
             title
-            full_image
+            description
             templateKey
             date(formatString: "YYYY.MM.DD")
           }
