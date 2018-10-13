@@ -8,9 +8,9 @@ export default props => {
       <h3 className="faq--title">
         <Link to={props.post.fields.slug}>{props.post.frontmatter.title}</Link>
       </h3>
-      <div className="faq--answer">
+      <article className="faq--answer">
         <HTMLContent content={props.post.html} />
-      </div>
+      </article>
     </div>
   )
 }
