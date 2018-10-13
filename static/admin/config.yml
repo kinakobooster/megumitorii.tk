@@ -33,12 +33,12 @@ collections:
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Tags", name: "tags", widget: "list"}
 
-  - name: "links"
-    label: "Links"
-    folder: "src/pages/links"
+  - name: "writings"
+    label: "Writings"
+    folder: "src/pages/writings"
     create: true
     fields:
-      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "links"}
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "writings"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Description", name: "description", widget: "text"}

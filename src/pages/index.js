@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Project from '../components/ProjectComponent'
-import Links from '../components/LinksComponent'
+import Writings from '../components/WritingsComponent'
 import Faq from '../components/FaqComponent'
 
 export default class IndexPage extends React.Component {
@@ -11,7 +11,7 @@ export default class IndexPage extends React.Component {
     const { data } = this.props
     const { edges: projestPosts } = data.projects
     const { edges: faqPosts } = data.faqs
-    const { edges: linkPosts } = data.links
+    const { edges: linkPosts } = data.writings
 
     return (
       <Layout>
@@ -27,12 +27,12 @@ export default class IndexPage extends React.Component {
               More Projects >
             </Link>
 
-            {/* Links */}
-            <div className="links-wrapper">
+            {/* Writings */}
+            <div className="writings-wrapper">
               {linkPosts.map(({ node }) => (
-                <Links post={node} key={node.id} />
+                <Writings post={node} key={node.id} />
               ))}
-              <Link className="more-link" to="./links">
+              <Link className="more-link" to="./writings">
                 More Writings >
               </Link>
             </div>
@@ -80,9 +80,9 @@ export const pageQuery = graphql`
         }
       }
     }
-    links: allMarkdownRemark(
+    writings: allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date] }
-      filter: { frontmatter: { templateKey: { eq: "links" } } }
+      filter: { frontmatter: { templateKey: { eq: "writings" } } }
       limit: 3
     ) {
       edges {

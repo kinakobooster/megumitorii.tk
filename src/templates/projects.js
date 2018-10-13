@@ -62,7 +62,7 @@ const Projects = ({ data }) => {
       <ProjectsTemplate
         content={post.html}
         contentComponent={HTMLContent}
-        helmet={<Helmet title={`${post.frontmatter.title} | Links`} />}
+        helmet={<Helmet title={`${post.frontmatter.title} | Writings`} />}
         tags={post.frontmatter.tags}
         title={post.frontmatter.title}
       />

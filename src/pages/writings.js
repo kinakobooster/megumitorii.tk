@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
-import Links from '../components/LinksComponent'
+import Writings from '../components/WritingsComponent'
 
 export default class IndexPage extends React.Component {
   render() {
@@ -14,7 +14,7 @@ export default class IndexPage extends React.Component {
         <section className="section">
           <div className="container">
             {posts.map(({ node: post }) => (
-              <Links post={post} key={post.id} />
+              <Writings post={post} key={post.id} />
             ))}
           </div>
         </section>
@@ -32,10 +32,10 @@ IndexPage.propTypes = {
 }
 
 export const pageQuery = graphql`
-  query AllLinks {
+  query AllWritings {
     allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date] }
-      filter: { frontmatter: { templateKey: { eq: "links" } } }
+      filter: { frontmatter: { templateKey: { eq: "writings" } } }
     ) {
       edges {
         node {
