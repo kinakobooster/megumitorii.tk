@@ -15,8 +15,19 @@ export default class IndexPage extends React.Component {
 
     return (
       <Layout>
-        <section className="section">
-          <div className="container">
+        <div className="container">
+          <section className="section">
+              {/* FAQ */}
+              <div className="faq-wrapper">
+                {faqPosts.map(({ node }) => (
+                  <Faq post={node} key={node.id} />
+                ))}
+              <Link className="more-link" to="./faq">
+                  とりいへ100の質問 >
+              </Link>
+              </div>
+            </section>
+            <section className="section">
             {/* Projects */}
             <div className="box-wrapper">
               {projestPosts.map(({ node }) => (
@@ -36,15 +47,8 @@ export default class IndexPage extends React.Component {
                 More Writings >
               </Link>
             </div>
-
-            {/* FAQ */}
-            <div className="faq-wrapper">
-              {faqPosts.map(({ node }) => (
-                <Faq post={node} key={node.id} />
-              ))}
-            </div>
-          </div>
-        </section>
+         </section>
+        </div>
       </Layout>
     )
   }
@@ -104,7 +108,7 @@ export const pageQuery = graphql`
       }
     }
     faqs: allMarkdownRemark(
-      sort: { order: DESC, fields: [frontmatter___date] }
+      sort: { order: ASC, fields: [frontmatter___date] }
       filter: { frontmatter: { templateKey: { eq: "faq" } } }
       limit: 3
     ) {

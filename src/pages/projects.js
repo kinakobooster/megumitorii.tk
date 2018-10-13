@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
+import Project from '../components/ProjectComponent'
 import Layout from '../components/Layout'
 
 export default class IndexPage extends React.Component {
@@ -12,28 +13,9 @@ export default class IndexPage extends React.Component {
       <Layout>
         <section className="section">
           <div className="container">
+          <h1>つくったもの</h1>
             {posts.map(({ node: post }) => (
-              <div
-                className="content"
-                style={{ border: '1px solid #eaecee', padding: '2em 4em' }}
-                key={post.id}
-              >
-                <p>
-                  <Link className="has-text-primary" to={post.fields.slug}>
-                    {post.frontmatter.title}
-                  </Link>
-                  <span> &bull; </span>
-                  <small>{post.frontmatter.date}</small>
-                </p>
-                <p>
-                  {post.excerpt}
-                  <br />
-                  <br />
-                  <Link className="button is-small" to={post.fields.slug}>
-                    Keep Reading →
-                  </Link>
-                </p>
-              </div>
+              <Project post={post} key={post.id} />
             ))}
           </div>
         </section>
@@ -58,7 +40,6 @@ export const pageQuery = graphql`
     ) {
       edges {
         node {
-          excerpt(pruneLength: 400)
           id
           fields {
             slug

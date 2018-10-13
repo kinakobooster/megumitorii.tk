@@ -10,6 +10,7 @@ const TemplateWrapper = ({ children }) => (
     <Helmet title="Home | megumitorii.tk" />
     <Namecard />
     <div>{children}</div>
+    <footer>powered by Netlify CMS and Gatsby</footer>
   </div>
 )
 

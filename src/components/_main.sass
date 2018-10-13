@@ -59,8 +59,19 @@ a:hover
 img
     max-width: 100%
 
-article
-    margin: 0 auto
+section
+    margin: $basic-margin
+
+h1
+    font-size: $font-large
+    font-weight: bold
+    color: $deepGray
+footer
+    color: $offWhite
+    font-size: $font-text /2
+    text-align: center
+li
+    list-style-type: none
 
 nav.navbar
     display: none
@@ -82,6 +93,15 @@ nav.navbar
         display: inline-block
         margin-right: $font-text/2
         color: $offWhite
+        font-weight: normal
+.description
+    font-size: $font-text
+    color: $lightGray
+    margin-left: $basic-margin 
+.post-description
+    font-size: $font-text
+    color: $lightGray
+    margin: 0 $basic-margin $basic-margin 
 
 //name card
 .name-card
@@ -102,26 +122,21 @@ nav.navbar
 $blur-size: 10px
 
 .box-wrapper
-    display: flex
-    flex-direction: row
-    overflow: scroll
 
 .square-box
-    width: 30vw
+    width: 100%
     height: 30vw
     background-size: cover
     position: relative
     z-index: 0
     overflow: hidden
-    margin-right: $basic-margin / 2
+    margin: $basic-margin 0
+    background-color: $offWhite
+    background-position: center center
 
     display: flex
     align-items: center
     justify-content: center
-
-    +max-screen($breakpoint-mobile)
-        width: 45vw
-        height: 45vw
 
     .square-box--text
         color: $deepGray
@@ -145,6 +160,7 @@ $blur-size: 10px
         filter: blur($blur-size)
         opacity: 0
         transition: 500ms ease-out
+        text-decoration: none
 
 
 
@@ -172,20 +188,17 @@ $blur-size: 10px
     padding: $basic-margin 0
 
 .link
-    margin: $basic-margin 0
-    padding: $basic-margin 0
-
+    margin: $basic-margin * 1.5 0
 
     .link--title
         font-size: $font-middle
         color: $deepGray
-        padding: $basic-margin/2   0
+        padding: $basic-margin/2 0
     
-    .description
-        font-size: $font-text
-        color: $lightGray
-        margin-left: $basic-margin 
 
+
+// faq
+    
 .faq
     font-size: $font-text
     color: $deepGray
@@ -193,8 +206,28 @@ $blur-size: 10px
         margin: $basic-margin/2 0
     .faq--answer
         margin-left: $basic-margin 
-        li
-            
+
+
+//tag
+.taglist
+    margin: $basic-margin 0
+    li
+        margin: $basic-margin/2 0
+
+//article
+article
+    margin: 0 $basic-margin
+    color: $deepGray
+
+    h1,h2
+        font-size: $font-middle
+    ul
+        margin: $basic-margin 0
+    li
+        list-style-type: disc
+        margin-left: $basic-margin 
+
+
 section
     padding: 0 ($basic_margin / 2) ($basic_margin / 2)
 

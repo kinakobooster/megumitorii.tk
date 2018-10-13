@@ -1,8 +1,7 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
-import Writings from '../components/WritingsComponent'
+import Faq from '../components/FaqComponent'
 
 export default class IndexPage extends React.Component {
   render() {
@@ -13,9 +12,9 @@ export default class IndexPage extends React.Component {
       <Layout>
         <section className="section">
           <div className="container">
-          <h1>書いたもの</h1>
+          <h1>よくある質問</h1>
             {posts.map(({ node: post }) => (
-              <Writings post={post} key={post.id} />
+              <Faq post={post} key={post.id} />
             ))}
           </div>
         </section>
@@ -24,32 +23,23 @@ export default class IndexPage extends React.Component {
   }
 }
 
-IndexPage.propTypes = {
-  data: PropTypes.shape({
-    allMarkdownRemark: PropTypes.shape({
-      edges: PropTypes.array,
-    }),
-  }),
-}
-
 export const pageQuery = graphql`
-  query AllWritings {
+  query AllFaqs {
     allMarkdownRemark(
-      sort: { order: DESC, fields: [frontmatter___date] }
-      filter: { frontmatter: { templateKey: { eq: "writings" } } }
+      sort: { order: ASC, fields: [frontmatter___date] }
+      filter: { frontmatter: { templateKey: { eq: "faq" } } }
     ) {
       edges {
         node {
           excerpt(pruneLength: 400)
           id
+          html
           fields {
             slug
           }
           frontmatter {
-            url
             tags
             title
-            full_image
             templateKey
             date(formatString: "YYYY.MM.DD")
           }
