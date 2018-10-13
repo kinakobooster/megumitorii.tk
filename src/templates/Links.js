@@ -1,57 +1,90 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { graphql } from 'gatsby'
+import { kebabCase } from 'lodash'
+import Helmet from 'react-helmet'
+import { graphql, Link } from 'gatsby'
 import Layout from '../components/Layout'
-import Links from '../components/LinksComponent'
+import Content, { HTMLContent } from '../components/Content'
 
-export default class IndexPage extends React.Component {
-  render() {
-    const { data } = this.props
-    const { edges: posts } = data.allMarkdownRemark
+export const LinksTemplate = ({
+  content,
+  contentComponent,
+  tags,
+  title,
+  helmet,
+}) => {
+  const PostContent = contentComponent || Content
 
-    return (
-      <Layout>
-        <section className="section">
-          <div className="container">
-            {posts.map(({ node: post }) => (
-              <Links post={post} key={post.id} />
-            ))}
+  return (
+    <section className="section">
+      {helmet || ''}
+      <div className="container content">
+        <div className="columns">
+          <div className="column is-10 is-offset-1">
+            <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
+              {title}
+            </h1>
+            <PostContent content={content} />
+            {tags && tags.length ? (
+              <div style={{ marginTop: `4rem` }}>
+                <h4>Tags</h4>
+                <ul className="taglist">
+                  {tags.map(tag => (
+                    <li key={tag + `tag`}>
+                      <Link to={`/tags/${kebabCase(tag)}/`}>#{tag}</Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
           </div>
-        </section>
-      </Layout>
-    )
-  }
+        </div>
+      </div>
+    </section>
+  )
 }
 
-IndexPage.propTypes = {
+LinksTemplate.propTypes = {
+  content: PropTypes.node.isRequired,
+  contentComponent: PropTypes.func,
+  title: PropTypes.string,
+  helmet: PropTypes.instanceOf(Helmet),
+}
+
+const Links = ({ data }) => {
+  const { markdownRemark: post } = data
+
+  return (
+    <Layout>
+      <LinksTemplate
+        content={post.html}
+        contentComponent={HTMLContent}
+        helmet={<Helmet title={`${post.frontmatter.title} | FAQ`} />}
+        tags={post.frontmatter.tags}
+        title={post.frontmatter.title}
+      />
+    </Layout>
+  )
+}
+
+Links.propTypes = {
   data: PropTypes.shape({
-    allMarkdownRemark: PropTypes.shape({
-      edges: PropTypes.array,
-    }),
+    markdownRemark: PropTypes.object,
   }),
 }
 
+export default Links
+
 export const pageQuery = graphql`
-  query AllLinks {
-    allMarkdownRemark(
-      sort: { order: DESC, fields: [frontmatter___date] }
-      filter: { frontmatter: { templateKey: { eq: "links" } } }
-    ) {
-      edges {
-        node {
-          excerpt(pruneLength: 400)
-          id
-          fields {
-            slug
-          }
-          frontmatter {
-            tags
-            title
-            full_image
-            templateKey
-            date(formatString: "YYYY.MM.DD")
-          }
-        }
+  query LinksByID($id: String!) {
+    markdownRemark(id: { eq: $id }) {
+      id
+      html
+      frontmatter {
+        url
+        date(formatString: "YYYY.MM.DD")
+        title
+        tags
       }
     }
   }
