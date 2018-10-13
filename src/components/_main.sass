@@ -141,15 +141,16 @@ $blur-size: 10px
     .square-box--text
         color: $deepGray
         text-align: center
-        font-size: $font-middle
-        font-weight: bold
-
         filter: blur(0)
         opacity: 1
         transition: 30ms ease-out
 
         +max-screen($breakpoint-tablet)
             font-size: $font-text
+
+            h3
+                font-size: $font-middle
+                font-weight: bold
 
 
 
@@ -161,8 +162,6 @@ $blur-size: 10px
         opacity: 0
         transition: 500ms ease-out
         text-decoration: none
-
-
 
 .square-box::before
     content: ""
