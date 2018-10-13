@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
 import Layout from '../components/Layout'
-import Projects from '../components/Projects-mini'
+import Project from '../components/ProjectComponent'
 import Links from '../components/LinksComponent'
 import Faq from '../components/FaqComponent'
 
@@ -20,7 +20,7 @@ export default class IndexPage extends React.Component {
             {/* Projects */}
             <div className="box-wrapper">
               {projestPosts.map(({ node }) => (
-                <Projects post={node} key={node.id} />
+                <Project post={node} key={node.id} />
               ))}
             </div>
             <Link className="more-link" to="./projects">

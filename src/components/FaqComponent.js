@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import { kebabCase } from 'lodash'
-import Content, { HTMLContent } from '../components/Content'
+import { HTMLContent } from '../components/Content'
 
 export default props => {
   return (

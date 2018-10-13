@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Link, graphql } from 'gatsby'
 import Layout from '../components/Layout'
-import Projects from '../components/Projects-mini'
 
 export default class IndexPage extends React.Component {
   render() {
