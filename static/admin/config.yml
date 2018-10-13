@@ -37,7 +37,6 @@ collections:
     label: "Links"
     folder: "src/pages/links"
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - {label: "Template Key", name: "templateKey", widget: "hidden", default: "links"}
       - {label: "Title", name: "title", widget: "string"}
