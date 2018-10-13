@@ -91,6 +91,7 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
+            url
             tags
             title
             templateKey
