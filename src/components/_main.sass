@@ -87,7 +87,7 @@ nav.navbar
 .name-card
     border-left: 1px solid $accent
     padding: $basic-margin
-    margin: $basic-margin 0
+    margin: $basic-margin
 
     h1
         font-size: $font-large
@@ -186,8 +186,13 @@ $blur-size: 10px
         color: $lightGray
         margin-left: $basic-margin 
 
-
-    
+.faq
+    font-size: $font-text
+    color: $deepGray
+    .faq--title
+        margin: $basic-margin/2 0
+    .faq--answer
+        margin-left: $basic-margin 
 section
     padding: 0 ($basic_margin / 2) ($basic_margin / 2)
 
@@ -196,39 +201,3 @@ section
         flex-wrap: wrap
         justify-content: center
         background-color: $lightGray
-
-    .cell
-        display: block
-        background-color: $white
-        width: 40%
-        padding: $basic-margin / 2
-        margin: $basic-margin / 2
-
-        +max-screen($breakpoint-mobile)
-            width: 100%
-
-
-        p
-            color: $offWhite
-            font-size: 0.5em
-            text-align: left
-
-dt
-    line-height: 0.6em
-    color: $offWhite
-    font-size: 0.5em
-    text-align: left
-    margin-top: 1em
-
-dl
-    line-height: 1.5em
-    font-weight: normal
-
-footer
-    margin-top: $basic_margin
-    background-color: $deepGray
-    text-align: center
-
-    strong
-        +max-screen($breakpoint-mobile)
-            font-size: 0.5em

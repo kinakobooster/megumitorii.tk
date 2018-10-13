@@ -5,7 +5,6 @@ import Layout from '../components/Layout'
 import Projects from '../components/Projects-mini'
 import Links from '../components/LinksComponent'
 import Faq from '../components/FaqComponent'
-import Namecard from '../components/namecard'
 
 export default class IndexPage extends React.Component {
   render() {
@@ -18,8 +17,6 @@ export default class IndexPage extends React.Component {
       <Layout>
         <section className="section">
           <div className="container">
-            <Namecard />
-
             {/* Projects */}
             <div className="box-wrapper">
               {projestPosts.map(({ node }) => (

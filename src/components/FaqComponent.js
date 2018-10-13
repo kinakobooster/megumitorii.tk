@@ -6,16 +6,8 @@ import Content, { HTMLContent } from '../components/Content'
 export default props => {
   return (
     <div className="faq">
-      <div className="date">
-        <Link to={props.post.fields.slug}>{props.post.frontmatter.date}</Link>
-        {props.post.frontmatter.tags.map(tag => (
-          <Link to={`/tags/${kebabCase(tag)}/`} key={tag}>
-            #{tag}
-          </Link>
-        ))}
-      </div>
-      <h3 className="Faq--title">{props.post.frontmatter.title}</h3>
-      <div className="Faq--answer">
+      <h3 className="faq--title"><Link to={props.post.fields.slug}>{props.post.frontmatter.title}</Link></h3>
+      <div className="faq--answer">
         <HTMLContent content={props.post.html} />
       </div>
     </div>
