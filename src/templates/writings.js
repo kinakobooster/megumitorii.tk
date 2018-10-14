@@ -22,7 +22,9 @@ export const WritingsTemplate = ({
         <div className="columns">
           <div className="column is-10 is-offset-1">
             <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
+              <a href={url}>
               {title}
+              </a>
             </h1>
             <PostContent content={content} />
             {tags && tags.length ? (
@@ -44,12 +46,6 @@ export const WritingsTemplate = ({
   )
 }
 
-WritingsTemplate.propTypes = {
-  content: PropTypes.node.isRequired,
-  contentComponent: PropTypes.func,
-  title: PropTypes.string,
-  helmet: PropTypes.instanceOf(Helmet),
-}
 
 const Writings = ({ data }) => {
   const { markdownRemark: post } = data
@@ -59,9 +55,10 @@ const Writings = ({ data }) => {
       <WritingsTemplate
         content={post.html}
         contentComponent={HTMLContent}
-        helmet={<Helmet title={`${post.frontmatter.title} | FAQ`} />}
+        helmet={<Helmet title={`${post.frontmatter.title} | Writings`} />}
         tags={post.frontmatter.tags}
         title={post.frontmatter.title}
+        url={post.frontmatter.url}
       />
     </Layout>
   )
