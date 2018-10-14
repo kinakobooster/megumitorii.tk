@@ -7,7 +7,6 @@ full_image: /img/5.png
 tags:
   - アプリデザイン
 ---
-
 Think! Think!
 
 使用ソフト: Adobe Illustrator
@@ -21,4 +20,4 @@ Think! Think!
 
 [Think! Think!公式ウェブサイト](http://think2app.hanamarulab.com)
 
-＜画像なるべくたくさん＞
+出来上がったデザインは実装された後、すぐに子どもたちに使ってもらい、生の反応を見ながら修正を繰り返しました。
