@@ -3,7 +3,7 @@ templateKey: projects
 title: Think! Think!
 date: 2017-11-14T03:12:59.232Z
 description: 子ども向け学習アプリ
-full_image: /img/doaq4utv4aaxben.jpg
+full_image: /img/5.png
 tags:
   - アプリデザイン
 ---
