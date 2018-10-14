@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 import Project from '../components/ProjectComponent'
 import Layout from '../components/Layout'
 
-export default class IndexPage extends React.Component {
+export default class ProjectsPage extends React.Component {
   render() {
     const { data } = this.props
     const { edges: posts } = data.allMarkdownRemark
@@ -24,7 +24,7 @@ export default class IndexPage extends React.Component {
   }
 }
 
-IndexPage.propTypes = {
+ProjectsPage.propTypes = {
   data: PropTypes.shape({
     allMarkdownRemark: PropTypes.shape({
       edges: PropTypes.array,
@@ -49,7 +49,7 @@ export const pageQuery = graphql`
             title
             full_image
             templateKey
-            date(formatString: "YYYY.MM.DD")
+            date(formatString: "YYYY.MM")
           }
         }
       }
