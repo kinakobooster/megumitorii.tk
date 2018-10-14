@@ -1,7 +1,7 @@
 ---
 templateKey: projects
 title: ika simulator
-date: 2018-10-14T03:12:59.232Z
+date: 2016-10-14T03:12:59.232Z
 description: トップビューのスプラトゥーン風ゲーム
 full_image: /img/ika.jpg
 tags:
