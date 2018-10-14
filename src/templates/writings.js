@@ -12,6 +12,7 @@ export const WritingsTemplate = ({
   tags,
   title,
   helmet,
+  url
 }) => {
   const PostContent = contentComponent || Content
 

@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import Writings from '../components/WritingsComponent'
@@ -24,13 +23,6 @@ export default class IndexPage extends React.Component {
   }
 }
 
-IndexPage.propTypes = {
-  data: PropTypes.shape({
-    allMarkdownRemark: PropTypes.shape({
-      edges: PropTypes.array,
-    }),
-  }),
-}
 
 export const pageQuery = graphql`
   query AllWritings {
