@@ -3,7 +3,7 @@ templateKey: projects
 title: Chisei Bot
 date: 2016-10-14T03:12:59.232Z
 description: 人の真似をしてくれるBot
-full_image: /img/doaq4utv4aaxben.jpg
+full_image: /img/chisei.jpg
 tags:
   - bot
   - js
