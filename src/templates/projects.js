@@ -6,7 +6,6 @@ import { graphql, Link } from 'gatsby'
 import Layout from '../components/Layout'
 import Content, { HTMLContent } from '../components/Content'
 
-
 export const ProjectsTemplate = ({
   content,
   contentComponent,
@@ -21,13 +20,14 @@ export const ProjectsTemplate = ({
   return (
     <section className="section">
       {helmet || ''}
+      {
+        // eslint-disable-next-line
+        }
       <img src={fullImage} />
-      <h1>
-        {title}
-      </h1>
+      <h1>{title}</h1>
       <p className="post-description">{description}</p>
       <article>
-      <PostContent content={content} />
+        <PostContent content={content} />
       </article>
       {tags && tags.length ? (
         <div style={{ marginTop: `4rem` }}>

@@ -12,7 +12,7 @@ export default class IndexPage extends React.Component {
       <Layout>
         <section className="section">
           <div className="container">
-          <h1>よくある質問</h1>
+            <h1>よくある質問</h1>
             {posts.map(({ node: post }) => (
               <Faq post={post} key={post.id} />
             ))}

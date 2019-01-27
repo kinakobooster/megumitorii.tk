@@ -13,7 +13,7 @@ export default class ProjectsPage extends React.Component {
       <Layout>
         <section className="section">
           <div className="container">
-          <h1>つくったもの</h1>
+            <h1>つくったもの</h1>
             {posts.map(({ node: post }) => (
               <Project post={post} key={post.id} />
             ))}

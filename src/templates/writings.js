@@ -12,7 +12,7 @@ export const WritingsTemplate = ({
   tags,
   title,
   helmet,
-  url
+  url,
 }) => {
   const PostContent = contentComponent || Content
 
@@ -23,9 +23,7 @@ export const WritingsTemplate = ({
         <div className="columns">
           <div className="column is-10 is-offset-1">
             <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
-              <a href={url}>
-              {title}
-              </a>
+              <a href={url}>{title}</a>
             </h1>
             <PostContent content={content} />
             {tags && tags.length ? (
@@ -46,7 +44,6 @@ export const WritingsTemplate = ({
     </section>
   )
 }
-
 
 const Writings = ({ data }) => {
   const { markdownRemark: post } = data

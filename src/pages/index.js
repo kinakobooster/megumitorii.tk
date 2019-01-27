@@ -17,17 +17,17 @@ export default class IndexPage extends React.Component {
       <Layout>
         <div className="container">
           <section className="section">
-              {/* FAQ */}
-              <div className="faq-wrapper">
-                {faqPosts.map(({ node }) => (
-                  <Faq post={node} key={node.id} />
-                ))}
+            {/* FAQ */}
+            <div className="faq-wrapper">
+              {faqPosts.map(({ node }) => (
+                <Faq post={node} key={node.id} />
+              ))}
               <Link className="more-link" to="./faq">
-                  とりいへ100の質問 >
+                とりいへ100の質問 >
               </Link>
-              </div>
-            </section>
-            <section className="section">
+            </div>
+          </section>
+          <section className="section">
             {/* Projects */}
             <div className="box-wrapper">
               {projestPosts.map(({ node }) => (
@@ -47,7 +47,7 @@ export default class IndexPage extends React.Component {
                 More Writings >
               </Link>
             </div>
-         </section>
+          </section>
         </div>
       </Layout>
     )
