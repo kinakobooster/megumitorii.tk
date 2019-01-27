@@ -85,9 +85,9 @@ module.exports = {
             type: 'image/png',
           },
         ],
-        splash_pages: null,
       },
     },
+    'gatsby-plugin-offline',　// 必ずgatsby-plugin-manifestの後に定義する
     'gatsby-plugin-netlify', // make sure to keep it last in the array
   ],
 }
