@@ -40,7 +40,7 @@ module.exports = {
         short_name: 'megtree',
         theme_color: '#0000ff',
         background_color: '#ffffff',
-        display: 'minimal-ui',
+        display: 'standalone',
         Scope: '/',
         start_url: '/',
         icons: [
